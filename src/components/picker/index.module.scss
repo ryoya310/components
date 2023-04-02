@@ -1,0 +1,91 @@
+$naviHeight: 40px;
+.picker {
+  height: 100%;
+  input {
+    padding-left: 8px;
+    box-sizing: border-box;
+    border: none;
+    &:focus,
+    &:active {
+      outline: none;
+      border: none;
+    }
+  }
+  button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+      transition: .3s;
+    }
+  }
+  .navi {
+    height: $naviHeight;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid #111;
+    padding: 0 8px;
+    input {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .add {
+    height: $naviHeight;
+    line-height: $naviHeight;
+    padding: 0 0.4em;
+    background: #fff;
+    overflow: hidden;
+    transition: 0.4s;
+    animation-duration: 0.2s;
+    animation-name: show;
+    button {
+      margin-right: 8px;
+      background: #e5136e;
+      color: #fff;
+    }
+    input {
+      height: 30px;
+    }
+    &.enable {
+      height: 40px;
+    }
+    &.disable {
+      height: 0px;
+    }
+    @keyframes show {
+      from {
+        height: 0px;
+      }
+      to {
+        height: 40px;
+      }
+    }
+  }
+  .list {
+    overflow-y: scroll;
+    height: calc(100% - $naviHeight);
+    li {
+      padding: 0.4em;
+      border-bottom: 1px solid #aaa;
+      display: flex;
+      align-items: center;
+      font-size: 0.9em;
+      &:hover {
+        transition: .3s;
+        background: #f089af60;
+      }
+      button {
+        background: #5f84e1;
+        color: #fff;
+        margin-right: 8px;
+      }
+    }
+  }
+  .noitem {
+    text-align: center;
+  }
+}

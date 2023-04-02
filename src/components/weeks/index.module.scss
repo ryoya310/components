@@ -1,0 +1,35 @@
+.weeks {
+  user-select: none;
+  .targetRange {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    height: 40px;
+    border-radius: 4px;
+    .range {
+      margin: 0 10px;
+      text-align: center;
+    }
+    button {
+      background: transparent;
+      border: none!important;
+      background: #f0f0f0;
+      height: 100%;
+      width: 40px;
+      cursor: pointer;
+    &:hover {
+        background: #eee;
+      }
+    }
+    .prev {
+      button {
+        border-radius: 4px 0 0 4px;
+      }
+    }
+    .next {
+      button {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+$errorColor: #db586c;
+$successColor: #25c574;
+
+.back {
+	color: #fff;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	.canvas {
+		background: linear-gradient(-45deg, #141977, #0b0f26, #0b0f26, #0b0f26);
+		background-size: 400% 400%;
+		animation: gradient 5s ease infinite;
+	}
+	canvas {
+		pointer-events: none;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.star1,
+.star2 {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	background-color: #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 2px 1px #fff;
+	z-index: 11;
+	&::before {
+		content: "";
+		position: absolute;
+		top: -50px;
+		width: 1px;
+		height: 1px;
+		background-color: #fff;
+		border-radius: 50%;
+		box-shadow: 0 0 2px 1px #fff;
+	}
+}
+
+.star1 {
+	&::before {
+		animation: twinkling1 4.3s infinite;
+	}
+}
+
+.star2 {
+	&::before {
+		animation: twinkling2 2s infinite;
+	}
+}
+
+@keyframes twinkling1 {
+	0% {
+		width: 2.2px;
+		height: 2.2px;
+	}
+	100% {
+		width: 1px;
+		height: 1px;
+	}
+}
+
+
+@keyframes twinkling2 {
+	0% {
+		width: 1.8px;
+		height: 1.8px;
+	}
+	100% {
+		width: 1px;
+		height: 1px;
+	}
+}

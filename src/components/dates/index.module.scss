@@ -1,0 +1,57 @@
+.dates {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	width: 100%;
+	background: #fff;
+	* {
+		box-sizing: border-box;
+	}
+	button {
+		font-size: 1em;
+		height: 40px!important;
+		width: 42px!important;
+		margin: 0!important;
+		padding: 0;
+		border: 1px solid #aaa;
+		background: transparent;
+		border-radius: 0;
+		color: #111;
+		text-align: center;
+		cursor: pointer;
+		svg {
+			text-align: center;
+			margin: 0;
+			width: 20px;
+			height: 20px;
+		}
+		&:hover {
+			background: #eee;
+		}
+	}
+	.prev {
+		button {
+			border-radius: 4px 0 0 4px;
+		}
+	}
+	.next {
+		button {
+			border-radius: 0 4px 4px 0;
+		}
+	}
+	input {
+		font-size: 16px;
+		height: 40px;
+		margin: 0;
+		padding: 0;
+		border: 1px solid #aaa;
+		border-left: none;
+		border-right: none;
+		padding: 0 10px 0 14px;
+		border-radius: 0;
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+}

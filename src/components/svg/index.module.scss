@@ -1,0 +1,69 @@
+$defaultColor: #aaaaaa;
+$activeColor: #2d88dd;
+$checkColor: #07bf3b;
+$warningColor: #efeb29;
+$outColor: #bf0754;
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+    margin: 0!important;
+    padding: 0!important;
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		text-align: center;
+		display: block;
+		svg {
+			&:hover {
+				background-color: transparent!important;
+			}
+		}
+	}
+}
+
+
+.beat {
+	animation: 1.2s linear infinite beat;
+	border-radius: 50%;
+	transform: scale(0.9);
+}
+@keyframes beat {
+	0% {
+		background: $warningColor;
+	}
+	100% {
+	}
+}
+
+.rotate {
+	animation: 2.4s linear infinite rotate;
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+		stroke: $checkColor;
+	}
+	25% {
+		transform: rotate(90deg);
+		stroke: $activeColor;
+	}
+	50% {
+		transform: rotate(180deg);
+		stroke: $checkColor;
+	}
+	75% {
+		transform: rotate(270deg);
+		stroke: $activeColor;
+	}
+	100% {
+		transform: rotate(360deg);
+		stroke: $checkColor;
+	}
+}

@@ -1,0 +1,49 @@
+$margin: 8px;
+$width: var(--width);
+$height: 30px;
+
+.selecter {
+  position: relative;
+  background: #eee;
+  border-radius: 18px;
+  width: fit-content;
+  padding: $margin;
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  ul {
+      display: flex;
+  }
+  li {
+    position: relative;
+    button {
+      display: block;
+      background: transparent;
+      border: none;
+      width: $width;
+      height: $height;
+      line-height: $height;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+    }
+    &.active {
+      button {
+        color: red;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+  .back {
+    position: absolute;
+    top: $margin;
+    left: calc(var(--select) + $margin);
+    width: $width;
+    height: $height;
+    line-height: $height;
+    border-radius: 14px;
+    background: #aaa;
+    transition: all 0.3s ease-in-out;
+  }
+}
