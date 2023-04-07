@@ -6,12 +6,12 @@ import Ocean from '../components/three/ocean'
 
 const Index = () => {
   const menus = [
-    {link: '/status/', name: 'ステータスバー'},
-    {link: '/svg/', name: 'SVG'},
-    {link: '/selecter/', name: 'セレクター'},
-    {link: '/loading/', name: 'ローディング'},
-    {link: '/dates/', name: '日付'},
-    {link: '/confirm/', name: 'Confirm'},
+    {link: '/components/status/', name: 'ステータスバー'},
+    {link: '/components/svg/', name: 'SVG'},
+    {link: '/components/selecter/', name: 'セレクター'},
+    {link: '/components/loading/', name: 'ローディング'},
+    {link: '/components/dates/', name: '日付'},
+    {link: '/components/confirm/', name: 'Confirm'},
   ]
   const router = useRouter()
 

@@ -7,6 +7,9 @@ function App() {
 
   const models = [
     {id: 1, distance: 0.3, name: 'Mouse', description: 'これマウスです。', threePath: '/components/images/mouse.glb'},
+    {id: 2, distance: 0.3, name: 'Mouse', description: 'これマウスです。', threePath: '/components/images/mouse.glb'},
+    {id: 3, distance: 0.3, name: 'Mouse', description: 'これマウスです。', threePath: '/components/images/mouse.glb'},
+    {id: 4, distance: 0.3, name: 'Mouse', description: 'これマウスです。', threePath: '/components/images/mouse.glb'},
   ]
   return <div>
     <div className={styles.itemBox}>
