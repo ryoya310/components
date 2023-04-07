@@ -5,8 +5,8 @@ import { Sky } from '@react-three/drei'
 export default function MeridiemSky() {
   const dt = new Date()
   const hours = dt.getHours()
-  // if (!8 <= hours && !20 >= hours) {
-  if (8 <= hours && 20 >= hours) {
+  if (!8 <= hours && !20 >= hours) {
+  // if (8 <= hours && 20 >= hours) {
     return <>
       <Sky
         scale={1000}

@@ -14,8 +14,8 @@ const length = 10000
 function OceanModel() {
   const ref = useRef()
   const gl = useThree((state) => state.gl)
-  // const waterNormals = useLoader(THREE.TextureLoader, '/images/water.jpeg')
-  const waterNormals = useLoader(THREE.TextureLoader, '/components/images/water.jpeg')
+  const waterNormals = useLoader(THREE.TextureLoader, '/images/water.jpeg')
+  // const waterNormals = useLoader(THREE.TextureLoader, '/components/images/water.jpeg')
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping
   const geom = useMemo(() => new THREE.PlaneGeometry(length, length), [])
   const config = useMemo(
