@@ -1,38 +1,23 @@
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
 import { useRouter } from 'next/router'
+
+import Ocean from '../components/three/ocean'
+
 const Index = () => {
   const menus = [
-    {link: 'status', name: 'ステータスバー'}
+    {link: '/status/', name: 'ステータスバー'},
+    {link: '/svg/', name: 'SVG'},
+    {link: '/selecter/', name: 'セレクター'},
+    {link: '/loading/', name: 'ローディング'},
+    {link: '/dates/', name: '日付'},
+    {link: '/confirm/', name: 'Confirm'},
   ]
   const router = useRouter()
 
   return <>
-    <div className='index'>
-      <h1>コンポーネントテスト</h1>
-      <div className='contents'>
-        <ul className='menu'>
-          <li onClick={() => router.push('/status/')}>
-            <h2>ステータスバー</h2>
-          </li>
-          <li onClick={() => router.push('/svg/')}>
-            <h2>SVG</h2>
-          </li>
-          <li onClick={() => router.push('/selecter/')}>
-            <h2>セレクター</h2>
-          </li>
-          <li onClick={() => router.push('/loading/')}>
-            <h2>ローディング</h2>
-          </li>
-          <li onClick={() => router.push('/dates/')}>
-            <h2>日付</h2>
-          </li>
-          <li onClick={() => router.push('/confirm/')}>
-            <h2>Confirm</h2>
-          </li>
-        </ul>
-      </div>
+    <div className='back'>
+      <Ocean menus={menus} />
     </div>
   </>
 }

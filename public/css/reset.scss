@@ -1,0 +1,186 @@
+
+@use "config.scss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto&display=swap');
+
+html,body {
+	margin: 0;
+	line-height: 1.5;
+	text-size-adjust: 100%;
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+	width: 100%;
+	height: 100%;
+	color: config.$fontColor;
+	* {
+		box-sizing: content-box;
+		vertical-align: middle;
+		&::-webkit-scrollbar {
+			height: 12px;
+			width: 6px;
+		}
+		&::-webkit-scrollbar-track {
+			background-color: #ddd;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: #aaa;
+		}
+	}
+
+	> #__next {
+		width: 100%;
+		height: 100%;
+		> div {
+			height: 100%;
+		}
+	}
+}
+
+a {
+	color: config.$fontColor;
+	text-decoration: none;
+}
+
+.isRequired {
+	fieldset {
+		border: 1px solid #2432cf!important;
+	}
+}
+
+input[type='checkbox'] {
+	cursor: pointer;
+}
+
+input[type='password'],
+input[type='number'],
+input[type='text'] {
+	padding: 0 8px;
+	height: 40px;
+	border: none;
+	font-size: 1.1em;
+	&:disabled {
+		background: #aaa!important;
+		color: #ddd!important;
+	}
+}
+input[type='date'] {
+	padding: 0 8px;
+	height: 40px;
+	border: none;
+	font-size: 1.1em;
+}
+
+select {
+	padding: 0 8px;
+	height: 40px;
+	border: none;
+	font-size: 1.1em;
+}
+
+// テーブル
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	thead {
+		position: sticky;
+		top: -1px;
+		z-index: 1;
+		&::before {
+			content : "";
+			position : absolute;
+			top : 0;
+		}
+		th {
+			position: relative;
+			&.sortable {
+				cursor: pointer;
+				&::after {
+					position: absolute;
+					top: 5px;
+					right: 5px;
+					font-size: .8em;
+				}
+			}
+			&.sortable[sort="asc"]:after {
+				content: "▲";
+			}
+			&.sortable[sort="desc"]:after {
+				content: "▼";
+			}
+		}
+	}
+	tr {
+		th, td{
+			height: 30px;
+			line-height: 30px;
+			padding: 0.2em;
+			white-space: nowrap;
+			overflow: hidden;
+			vertical-align: middle;
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+		th {
+			background: config.$blend1_02;
+			text-align: left;
+			font-weight: initial;
+			color: #fff;
+			padding: 0 0.4em;
+			.dummy{
+				width: auto;
+			}
+			a, button {
+				color: #fff!important;
+				border: 1px solid #fff!important;
+			}
+		}
+		th[data-sortable] {
+			cursor: pointer;
+		}
+		td {
+			vertical-align: middle;
+			background: #f0f0f0;
+			div.image {
+				position: relative;
+				text-align: center;
+				background: #fff;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				overflow: hidden;
+				box-shadow: 1px 1px 3px #eee;
+			}
+			img {
+				inset: unset!important;
+				position: absolute!important;
+				top: 50%!important;
+				left: 50%!important;
+				transform: translate(-50%, -50%)!important;
+				min-width: initial!important;
+				min-height: initial!important;
+				max-width: 90%!important;
+				max-height: 90%!important;
+				width: auto!important;
+				height: auto!important;
+			}
+			svg {
+				cursor: pointer;
+			}
+		}
+		&:nth-child(2n) td{
+			background:#ffffff;
+		}
+	}
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.MuiDialog-paper {
+	max-width: 100%!important;
+}
