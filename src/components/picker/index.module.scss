@@ -1,6 +1,7 @@
 $naviHeight: 40px;
 .picker {
   height: 100%;
+  overflow: hidden;
   input {
     padding-left: 8px;
     box-sizing: border-box;
@@ -26,11 +27,18 @@ $naviHeight: 40px;
     display: flex;
     align-items: center;
     background: #fff;
-    border-bottom: 1px solid #111;
-    padding: 0 8px;
     input {
       height: 100%;
-      width: 100%;
+      width: calc(100% - 42px);
+    }
+    button {
+      height: 100%;
+      width: 42px;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      background: #5f84e1;
+      color: #fff;
     }
   }
   .add {
@@ -65,23 +73,78 @@ $naviHeight: 40px;
       }
     }
   }
-  .list {
-    overflow-y: scroll;
-    height: calc(100% - $naviHeight);
-    li {
-      padding: 0.4em;
-      border-bottom: 1px solid #aaa;
-      display: flex;
-      align-items: center;
-      font-size: 0.9em;
-      &:hover {
-        transition: .3s;
-        background: #f089af60;
+  .contents {
+    height: 100%;
+    overflow: hidden;
+    .list {
+      overflow-y: scroll;
+      height: calc(100% - $naviHeight);
+      table {
+        table-layout: auto;
+        thead {
+          position: sticky;
+          top: 0;
+          th {
+            background: #3a4767;
+            height: 40px;
+          }
+        }
+        tr {
+          &:hover {
+            td {
+              transition: .3s;
+              background: #f089af60!important;
+            }
+          }
+          &:nth-child(1n) {
+            td {
+              background: #fff;
+            }
+          }
+          &:nth-child(2n) {
+            td {
+              background: #e8e9eb;
+            }
+          }
+          button {
+            background: #5f84e1;
+            color: #fff;
+            margin-left: 8px;
+            margin-right: 12px;
+            padding: 2px 8px;
+          }
+          div {
+            display: flex;
+            align-items: center;
+            span {
+              display: block;
+              margin-right: 1em;
+            }
+          }
+        }
       }
-      button {
-        background: #5f84e1;
-        color: #fff;
-        margin-right: 8px;
+    }
+  }
+
+  .scrollLoading {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    transition: 0.4s;
+    animation-duration: 0.2s;
+    animation-name: show;
+    > div {
+      background: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      box-shadow: 0 0  3px 3px rgba(0, 0, 0, 0.3);
+    }
+    @keyframes show {
+      from {
+        bottom: 20px;
+      }
+      to {
+        bottom: 40px;
       }
     }
   }
