@@ -39,15 +39,14 @@ const Picker = (props: Props) => {
     })
     const response = await promise.json()
     setLast(response.heads.Pages)
-
     setTimeout(() => {
       if (type == 'add') {
         setList(prevList => [...prevList, ...response.bodys])
       } else if (type == 'change') {
         setList(response.bodys)
       }
-      setScroll(true)
       setShow(true)
+      setScroll(true)
     }, 500)
   }
 
@@ -62,7 +61,6 @@ const Picker = (props: Props) => {
     if (element) {
       element.scrollTop = 0
     }
-    setShow(false)
     getList(url, {...request, PageNo: 1}, 'change')
   }
 
@@ -71,6 +69,7 @@ const Picker = (props: Props) => {
     function handleScroll() {
       const element = listRef.current
       if (element && element.scrollHeight - element.scrollTop <= element.clientHeight) {
+        console
         if (last > request.PageNo) {
           setScroll(false)
           setRequest((prevState: any) => ({...prevState, ['PageNo']: prevState.PageNo + 1}))
@@ -85,7 +84,7 @@ const Picker = (props: Props) => {
     }
     setShow(false)
     getList(url, request, 'change')
-  }, [show, scroll])
+  }, [scroll, show])
 
   return <>
     <div className={styles.picker}>
@@ -141,7 +140,9 @@ const Picker = (props: Props) => {
                     </div>
               }
             </div>
-          : <p className={styles.noitem}>No items found.</p>
+          : (show === false)
+              ? null
+              : <p className={styles.noitem}>No items found.</p>
       }
     </div>
   </>
