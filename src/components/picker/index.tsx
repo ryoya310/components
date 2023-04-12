@@ -62,6 +62,7 @@ const Picker = (props: Props) => {
     if (element) {
       element.scrollTop = 0
     }
+    setRequest((prevState: any) => ({...prevState, ['PageNo']: 1}))
     getList(url, {...request, PageNo: 1}, 'change')
   }
 
@@ -84,6 +85,7 @@ const Picker = (props: Props) => {
       element.addEventListener('scroll', handleScroll)
       return () => element.removeEventListener('scroll', handleScroll)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show])
 
   return <>
