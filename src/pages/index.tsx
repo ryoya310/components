@@ -17,7 +17,7 @@ const Index = () => {
 
   return <>
     <div className='back'>
-      <Ocean menus={menus} />
+      <Ocean />
     </div>
   </>
 }
