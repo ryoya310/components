@@ -17,7 +17,6 @@ export default function Counter(props: Props) {
 
   const { name, init = 0, step = 1, max, min, change } = props
   const [no, setNo] = React.useState(init)
-  const [first, setFirst] = React.useState(true)
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timeout | null>(null)
 
   const getNo = (no: number) => {
