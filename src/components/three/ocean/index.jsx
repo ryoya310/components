@@ -4,8 +4,8 @@ import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fibe
 import { OrbitControls, Html } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 
-import MeridiemSky from './sky'
-import Menus from './menus'
+import MeridiemSky from '../parts/sky'
+import Planet from '../parts/planet'
 
 extend({ Water })
 
@@ -36,42 +36,27 @@ function OceanModel() {
   return <water ref={ref} args={[geom, config]} rotation-x={-Math.PI / 2} />
 }
 
-function Box() {
-  const ref = useRef()
-  useFrame((state, delta) => {
-    ref.current.position.y = 10
-  })
-  return (
-    <mesh ref={ref} scale={[90, 30, 100]}>
-      <boxGeometry />
-      <meshStandardMaterial color='gray' />
-      <Html
-        distanceFactor={1.5}
-        position={[0, 0, 0.51]}
-        transform
-        occlude
-      >
-        <div style={{fontSize: '36px', marginTop: '-20px', color: '#fff'}}>MenuTest</div>
-      </Html>
-    </mesh>
-  )
-}
-{/* <sphereGeometry /> */}
-
 export default function Ocean(props) {
   const cameraRef = useRef(null)
   return (
-    <Canvas camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
+    <Canvas
+      camera={{
+        position: [10, 5, 400],
+        fov: 55,
+        near: 1,
+        far: 20000,
+      }}
+    >
 
       <pointLight position={[100, 100, 100]} />
       <pointLight position={[-100, -100, -100]} />
 
       <Suspense fallback={null}>
         <OceanModel />
-        <Box />
+        <Planet type='sun' position={[150, 0, 0]} />
+        <Planet />
+        <Planet type='moon' position={[-150, 0, 0]} />
       </Suspense>
-
-      <Menus menus={props.menus} length={length} />
 
       <MeridiemSky />
 
