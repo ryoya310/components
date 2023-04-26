@@ -1,23 +1,60 @@
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/router'
 
-import Ocean from '../components/three/ocean'
+import Card from '../components/card'
+import Counter from '../components/counter'
+import Confirm from '../components/confirm'
+import Loading from '../components/loading'
+import Dates from '../components/dates'
 
 const Index = () => {
-  const menus = [
-    {link: '/components/status/', name: 'ステータスバー'},
-    {link: '/components/svg/', name: 'SVG'},
-    {link: '/components/selecter/', name: 'セレクター'},
-    {link: '/components/loading/', name: 'ローディング'},
-    {link: '/components/dates/', name: '日付'},
-    {link: '/components/confirm/', name: 'Confirm'},
-  ]
-  const router = useRouter()
+
+  const [state, setState] = React.useState({
+    message: '',
+    callback: (result: boolean) => {},
+  })
+  const testConfirm = () => {
+    setState({
+      message: 'テストですか？',
+      callback: ((result: boolean) => {
+        if (result) {
+          console.log('OK')
+        } else {
+          console.log('Cancel')
+        }
+      })
+    })
+  }
 
   return <>
-    <div className='back'>
-      <Ocean />
+    <Confirm state={state} setState={setState} />
+    <div className='cardList'>
+      <Card
+        title='Counter'
+        thumbnail={<Counter name='quantity' />}
+        description='Input Numberのカスタマイズ。押しっぱなしで上下する。'
+      />
+      <Card
+        title='Confirm'
+        thumbnail={<>
+          <button type='button' onClick={testConfirm}>テストですか？</button>
+        </>}
+        description='Confirm 自作。'
+      />
+      <Card
+        title='Loading'
+        thumbnail={<>
+          <Loading pattern={2} />
+        </>}
+        description='Loading パターン。'
+      />
+      <Card
+        title='Dates'
+        thumbnail={<>
+          <Dates />
+        </>}
+        description='Input Date カスタマイズ。'
+      />
     </div>
   </>
 }
