@@ -17,6 +17,7 @@ export default function Counter(props: Props) {
 
   const { name, init = 0, step = 1, max, min, change } = props
   const [no, setNo] = React.useState(init)
+  const [first, setFirst] = React.useState(true)
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timeout | null>(null)
 
   const getNo = (no: number) => {
@@ -25,18 +26,24 @@ export default function Counter(props: Props) {
     if (min !== undefined && min >= nextNo) { nextNo = min }
     return nextNo
   }
-  const changeToggle = (no: number) => {
-    setNo(prevNo => getNo(prevNo + no))
-  }
+
   const changeCounter = (no: number) => {
     setNo(prevNo => getNo(no))
+  }
+
+  const changeToggle = (no: number) => {
+    setNo(prevNo => getNo(prevNo + no))
   }
 
   const handleMouseDown = (no: number) => {
     const id = setInterval(() => {
       changeToggle(no)
-    }, 100)
+    }, 150)
     setIntervalId(id)
+
+    if (intervalId === null) {
+      changeToggle(no)
+    }
   }
 
   const handleMouseUp = () => {
@@ -59,6 +66,7 @@ export default function Counter(props: Props) {
           onMouseUp={handleMouseUp}
           onTouchStart={() => handleMouseDown(step * -1)}
           onTouchEnd={handleMouseUp}
+          onMouseLeave={handleMouseUp}
         >
           <RemoveIcon />
         </button>
@@ -80,6 +88,7 @@ export default function Counter(props: Props) {
           onMouseUp={handleMouseUp}
           onTouchStart={() => handleMouseDown(step * 1)}
           onTouchEnd={handleMouseUp}
+          onMouseLeave={handleMouseUp}
         >
           <AddIcon />
         </button>
