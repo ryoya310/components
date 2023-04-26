@@ -6,6 +6,7 @@ import Counter from '../components/counter'
 import Confirm from '../components/confirm'
 import Loading from '../components/loading'
 import Dates from '../components/dates'
+import Ocean from '../components/three/ocean'
 
 const Index = () => {
 
@@ -30,6 +31,13 @@ const Index = () => {
     <Confirm state={state} setState={setState} />
     <div className='cardList'>
       <Card
+        title='3D背景'
+        thumbnail={<>
+          <Ocean />
+        </>}
+        description='THREEJS'
+      />
+      <Card
         title='Counter'
         thumbnail={<Counter name='quantity' />}
         description='Input Numberのカスタマイズ。押しっぱなしで上下する。'
@@ -44,7 +52,7 @@ const Index = () => {
       <Card
         title='Loading'
         thumbnail={<>
-          <Loading pattern={2} />
+          <Loading pattern={1} />
         </>}
         description='Loading パターン。'
       />
